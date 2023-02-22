@@ -11,8 +11,6 @@ exports.isAuthenticatedUser = async (req, res, next) => {
 
     console.log(token)
 
-
-
     if (!token) {
 
         return next(new ErrorHandler('Login first to access this resource.', 401))

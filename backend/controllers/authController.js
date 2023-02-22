@@ -87,7 +87,6 @@ exports.loginUser = async (req, res, next) => {
 	//  	success:true,
 
 	//  	token
-
 	//  });
 
     sendToken(user, 200, res)

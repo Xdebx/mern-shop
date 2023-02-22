@@ -226,8 +226,6 @@ const newProduct = async (req, res, next) => {
 	})
 }
 
-
-
 //update a product
 const updateProduct = async (req, res, next) => {
   const { id } = req.params;

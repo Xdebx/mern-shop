@@ -9,8 +9,6 @@
 // router.route('/admin/product/:id').put(updateProduct).delete(deleteProduct);
 // module.exports = router;
 
-
-
 //** code ni sir with auth*/
 const express = require('express');
 const router = express.Router();

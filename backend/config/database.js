@@ -10,7 +10,6 @@ const connectDatabase = () => {
     }).catch(err => console.log(err));
 }
 module.exports = connectDatabase
-
 //** code ni gab */
 // const mongoose = require("mongoose");
 
