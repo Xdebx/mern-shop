@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-      {/* <Route path="/search/:keyword" component={Home} /> */}
         <Route path="/" element={<Home />} exact="true" />
+        <Route path="/search/:keyword" element={<Home />} exact="true" />
         <Route path="/product/:id" element={<ProductDetails />} exact="true" />
       </Routes>
       <Footer />

@@ -129,44 +129,65 @@ const ErrorHandler = require('../utils/errorHandler')
 
 
 //** bago */
+// const getProducts = async (req, res, next) => {
+
+// 	const resPerPage = 4;
+// 	const productsCount = await Product.countDocuments();
+
+// 	// console.log(productsCount,req.query,Product.find())
+// 	// console.log(Product.find())
+
+// 	const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter()
+
+// 	// const products = await Product.find();
+
+// 	apiFeatures.pagination(resPerPage);
+
+// 	const products = await apiFeatures.query;
+
+// 	// console.log(products)
+
+//   setTimeout(() =>{
+// 		res.status(200).json({
+// 		success: true,
+// 		// count: products.length,
+// 		productsCount,
+// 		products
+// 		}) 	
+// 	 },2000);
+// 	// res.status(200).json({
+
+// 	// 	success: true,
+
+// 	// 	count: products.length,
+
+// 	// 	productsCount,
+
+// 	// 	products
+
+// 	// })
+
+// };
+
 const getProducts = async (req, res, next) => {
+  const resPerPage = 4;
+  const productsCount = await Product.countDocuments();
 
-	const resPerPage = 4;
-	const productsCount = await Product.countDocuments();
+  const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter();
 
-	// console.log(productsCount,req.query,Product.find())
-	// console.log(Product.find())
+  // let products = await apiFeatures.query;
 
-	const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter()
+  apiFeatures.pagination(resPerPage);
+  products = await apiFeatures.query;
+  let filteredProductsCount = products.length;
 
-	// const products = await Product.find();
-
-	apiFeatures.pagination(resPerPage);
-
-	const products = await apiFeatures.query;
-
-	// console.log(products)
-
-  setTimeout(() =>{
-		res.status(200).json({
-		success: true,
-		// count: products.length,
-		productsCount,
-		products
-		}) 	
-	 },2000);
-	// res.status(200).json({
-
-	// 	success: true,
-
-	// 	count: products.length,
-
-	// 	productsCount,
-
-	// 	products
-
-	// })
-
+  res.status(200).json({
+    success: true,
+    productsCount,
+    resPerPage,
+    filteredProductsCount,
+    products,
+  });
 };
 
 //get single product

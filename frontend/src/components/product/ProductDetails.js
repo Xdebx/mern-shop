@@ -5,13 +5,13 @@ import { useParams } from 'react-router-dom';
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 
-import { useAlert } from 'react-alert'
+// import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductDetails, clearErrors } from '../../actions/productActions'
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
-    const alert = useAlert();
+    // const alert = useAlert();
 
     let { id } = useParams();
 
