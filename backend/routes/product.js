@@ -24,8 +24,9 @@ router.get('/product/:id',getSingleProduct);
 
 // router.get('/products', isAuthenticatedUser,  getProducts);
 
-// router.get('/products',  isAuthenticatedUser,  authorizeRoles('admin'), getProducts)
 
+//** Fetch All Products */
+// router.get('/products',  isAuthenticatedUser,  authorizeRoles('admin'), getProducts)
 // router.post('/admin/product/new', isAuthenticatedUser, authorizeRoles('admin'), newProduct);
 
 // router.route('/admin/product/:id').put(isAuthenticatedUser, authorizeRoles('admin'), updateProduct).delete(isAuthenticatedUser, authorizeRoles('admin'), deleteProduct);

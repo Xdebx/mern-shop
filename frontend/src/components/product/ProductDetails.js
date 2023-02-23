@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductDetails, clearErrors } from '../../actions/productActions'
@@ -14,6 +15,9 @@ const ProductDetails = () => {
     // const alert = useAlert();
 
     let { id } = useParams();
+    const notify = (error = '') => toast.error(error, {
+        position: toast.POSITION.BOTTOM_CENTER
+    });
 
     const { loading, error, product } = useSelector(state => state.productDetails);
 
@@ -22,7 +26,8 @@ const ProductDetails = () => {
         dispatch(getProductDetails(id))
 
         if (error) {
-            alert.error(error);
+            // alert.error(error);
+            notify(error)
             dispatch(clearErrors())
         }
     }, [dispatch, alert, error, id]);

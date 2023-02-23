@@ -10,7 +10,8 @@ import { getProducts } from "../actions/productActions";
 import Pagination from "react-js-pagination";
 import Slider, { Range, createSliderWithTooltip } from "rc-slider";
 import "rc-slider/assets/index.css";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = ({match}) => {
   const dispatch = useDispatch();
@@ -44,12 +45,17 @@ const Home = ({match}) => {
     "Home",
   ];
 
+  const notify = (error = '') => toast.error(error, {
+    position: toast.POSITION.BOTTOM_CENTER
+    });
+
   let { keyword } = useParams();
 
   useEffect(() => {
     dispatch(getProducts(keyword, currentPage, price, category));
     if (error) {
-      return alert.error(error);
+      // return alert.error(error);
+      notify(error)
     }
   }, [dispatch, alert, error, keyword, price, currentPage, category]);
 
@@ -63,7 +69,7 @@ const Home = ({match}) => {
   }
 
   // console.log(keyword)
-
+  console.log(keyword, count, filteredProductsCount, resPerPage)
   return (
     <Fragment>
       {loading ? (
